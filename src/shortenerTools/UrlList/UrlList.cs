@@ -53,16 +53,16 @@ namespace Cloud5mins.Function
 
             try
             {
-                var invalidRequest = Utility.CatchUnauthorize(principal, log);
-                if (invalidRequest != null)
-                {
-                    return invalidRequest;
-                }
-                else
-                {
-                   userId = principal.FindFirst(ClaimTypes.GivenName).Value;
-                   log.LogInformation("Authenticated user {user}.", userId);
-                }
+             //   var invalidRequest = Utility.CatchUnauthorize(principal, log);
+             //   if (invalidRequest != null)
+             //   {
+             //       return invalidRequest;
+             //   }
+             //   else
+             //   {
+             //      userId = principal.FindFirst(ClaimTypes.GivenName).Value;
+             //      log.LogInformation("Authenticated user {user}.", userId);
+             //   }
 
                 result.UrlList = await stgHelper.GetAllShortUrlEntities();
                 result.UrlList = result.UrlList.Where(p => !(p.IsArchived ?? false)).ToList();
